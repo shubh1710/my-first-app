@@ -25,3 +25,17 @@ def hours_ahead(request,offset):
     t=get_template('hours_ahead.html')
     html=t.render(Context({'hour_offset':offset,'next_time':dt}))
     return HttpResponse(html)
+
+###################GENERATING PDF's#######################
+from reportlab.pdfgen import canvas
+
+def pdf_view(request):
+    response=HttpResponse(content_type='application/pdf')
+    response['Content-Disposition']='attachment;filename="helloworld.pdf"'
+    p=canvas.Canvas(response)
+    p.drawString(100, 100, "Hello Shubhanker.")
+    p.showPage()
+    p.save()
+    return response
+
+

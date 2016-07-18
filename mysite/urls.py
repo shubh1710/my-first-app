@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from mysite.views import current_datetime,hours_ahead
-from books.views import search,contact,pub_new,thanks,currentbook
+from mysite.views import current_datetime,hours_ahead,pdf_view
+from books.views import search,contact,pub_new,thanks,currentbook,login_view,logout_view,register,reg_success
 
 #urlpatterns = [
     #url(r'^admin/', admin.site.urls),
@@ -31,7 +31,12 @@ urlpatterns = [
     url(r'^add_publisher/$',pub_new),
     url(r'^thanks/$',thanks),
     url(r'^contact/thanks/$',thanks),
-    url(r'^currentbook/$',currentbook),
+    url(r'^search/(?P<id>\d+)$',currentbook),
+    url(r'^hello/$',pdf_view),
+    url(r'^login/$',login_view),
+    url(r'^loggedout/$',logout_view),
+    url(r'^register/$',register),
+    url(r'^register/success/$',reg_success),
 ]
 
 

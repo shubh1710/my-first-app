@@ -15,8 +15,11 @@
 {% if results %}
 <ul>
 {% for book in results %}
-<form action="/currentbook" method="GET">
-<li><input type="submit" name="q" value="{{ book|escape }}"></li>
+<li>
+<a href="/search/{{book.id}}">
+{{ book|escape }}
+</a>
+</li>
 </form>
 {% endfor %}
 </ul>

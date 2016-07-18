@@ -23,7 +23,7 @@ class Author(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
     email = models.EmailField()
-    headshot = models.ImageField(upload_to='/Users/Shubhanker/mysite')
+    headshot = models.ImageField(upload_to='/Users/Shubhanker Goyal/mysite/mysite/static/images')
     def __str__(self):
         return ('%s %s' % (self.first_name,self.last_name))
 
@@ -39,3 +39,17 @@ class Contact(models.Model):
     topic = models.CharField(max_length=20,choices=TOPIC_CHOICES)
     message = models.CharField(max_length=100)
     sender = models.EmailField()
+
+class User(models.Model):
+    username=models.CharField(max_length=20)
+    first_name=models.CharField(max_length=20)
+    last_name=models.CharField(max_length=20)
+    email=models.EmailField(max_length=30)
+    #password1=models.CharField(max_length=20)
+    #password2=models.CharField(max_length=20)
+    date_of_birth=models.DateField()
+    phone_number=models.PositiveIntegerField()
+    def __str__(self):
+        return (self.username)
+    
+
